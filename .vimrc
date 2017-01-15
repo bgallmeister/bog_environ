@@ -6,3 +6,4 @@ set showmatch
 syntax off
 set nohlsearch
 set t_Co=0
+set tw=79

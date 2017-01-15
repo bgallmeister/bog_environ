@@ -42,13 +42,11 @@ export PATH
 # Might need to change.
 export GOPATH=$HOME/go
 
-# H2o "Steam" project-specific:  set GOPATH
-export GOPATH=$HOME/work/src/go-land
 
 # added by Anaconda2 4.2.0 installer
 ###export PATH="/Users/bill/anaconda2/bin:$PATH"
 
 # Quilting.
-alias dquilt="quilt --quiltrc=$(HOME}/.quiltrc-dpkg"
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 complete -F _quilt_completion $_quilt_complete_opt dquilt
 
