@@ -1,4 +1,5 @@
 export PS1='\u@\h \w: '
+export EDITOR=vi
 
 alias ls="ls -CFa"
 alias ll="ls -lrt"
@@ -9,8 +10,13 @@ alias d="dirs"
 alias jo="jobs"
 
 # JAVA_HOME
-JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME
+if [ $(uname) == "Linux" ]; then
+    export JAVA_HOME=/usr/lib/jvm/default-java
+elif [ $(uname) == "MacOS" ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+else
+    export JAVA_HOME=setme
+fi
 
 # Setting PATH for bog's stuff.
 PATH="$HOME/tools/script:${PATH}"
