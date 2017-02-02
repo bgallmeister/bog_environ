@@ -1,5 +1,7 @@
 export PS1='\u@\h \w: '
 export EDITOR=vi
+export WHATAMI=`uname`_`arch`
+
 
 alias ls="ls -CFa"
 alias ll="ls -lrt"
@@ -19,28 +21,30 @@ else
 fi
 
 # Setting PATH for bog's stuff.
-PATH="$HOME/tools/script:${PATH}"
+PATH="$HOME/tools/script:$HOME/tools/${WHATAMI}:${PATH}"
 export PATH
 
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+if [ $(uname) == "MacOS" ]; then
+    # Setting PATH for Python 2.7
+    # The orginal version is saved in .bash_profile.pysave
+    PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+    export PATH
 
-# Setting PATH for Python 3.5
-# The orginal version is saved in .bash_profile.pysave
-#PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-#export PATH
+    # Setting PATH for Python 3.5
+    # The orginal version is saved in .bash_profile.pysave
+    #PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+    #export PATH
 
-# Setting PATH for hadoop 2.6.4
-# The orginal version is saved in .bash_profile.pysave
-PATH="$HOME/tools/hadoop-2.6.4/bin:${PATH}"
-export PATH
+    # Setting PATH for hadoop 2.6.4
+    # The orginal version is saved in .bash_profile.pysave
+    PATH="$HOME/tools/hadoop-2.6.4/bin:${PATH}"
+    export PATH
 
-# Setting PATH for Maven
-# The orginal version is saved in .bash_profile.pysave
-PATH="${PATH}:$HOME/tools/apache-maven-3.3.9/bin"
-export PATH
+    # Setting PATH for Maven
+    # The orginal version is saved in .bash_profile.pysave
+    PATH="${PATH}:$HOME/tools/apache-maven-3.3.9/bin"
+    export PATH
+fi
 
 # Setting PATH for Go
 PATH=${PATH}:/usr/local/go/bin
@@ -49,8 +53,8 @@ export PATH
 export GOPATH=$HOME/go
 
 
-# added by Anaconda2 4.2.0 installer
-###export PATH="/Users/bill/anaconda2/bin:$PATH"
+# added by Anaconda3 4.3.0 installer
+export PATH="/home/bog/tools/anaconda3/bin:$PATH"
 
 # Quilting.
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
