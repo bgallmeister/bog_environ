@@ -1,4 +1,4 @@
-FILES= .bash-aliases .vimrc .quiltrc-dpkg
+FILES= .bash_aliases .vimrc .quiltrc-dpkg
 
 # Might be nicer to check for existence...later.
 install: FORCE
