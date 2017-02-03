@@ -13,15 +13,18 @@ alias jo="jobs"
 
 # JAVA_HOME
 if [ $(uname) == "Linux" ]; then
+    # yo soy Linux
     export JAVA_HOME=/usr/lib/jvm/default-java
-elif [ $(uname) == "MacOS" ]; then
+elif [ $(uname) == "Darwin" ]; then
+    # ich bin ein Mac
     export JAVA_HOME=$(/usr/libexec/java_home)
 else
+    # bork bork bork
     export JAVA_HOME=setme
 fi
 
 # Setting PATH for bog's stuff.
-PATH="$HOME/tools/script:$HOME/tools/${WHATAMI}:${PATH}"
+PATH="$HOME/tools/script:$HOME/tools/${WHATAMI}/bin:${PATH}"
 export PATH
 
 if [ $(uname) == "MacOS" ]; then
