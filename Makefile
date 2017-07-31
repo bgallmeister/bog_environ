@@ -2,6 +2,8 @@ MY_EMAIL=bgallmeister@yahoo.com
 MY_NAME='Bill Gallmeister'
 
 ENVIRONMENT_FILES= .bash_aliases .vimrc .quiltrc-dpkg .Xdefaults
+VIM_LANG_SETUP_FILES= .vim/ftplugin/python.vim
+
 # Debian list.
 USEFUL_PACKAGES= python3 python3-pip r-base-core default-jre default-jdk vim-pathogen vim-go
 
@@ -15,6 +17,8 @@ install: gitsetup reminders FORCE
 	mkdir -p $(HOME)/tools/platform-independent/lib
 	mkdir -p $(HOME)/tools/$(WHATAMI)/bin
 	mkdir -p $(HOME)/tools/$(WHATAMI)/lib
+	mkdir -p $(HOME)/.vim/ftplugin
+	cp $(VIM_LANG_SETUP_FILES) $(HOME)/.vim/ftplugin
 
 gitsetup: FORCE
 	git config --global user.email $(MY_EMAIL)
