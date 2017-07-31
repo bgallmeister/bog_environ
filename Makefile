@@ -3,13 +3,13 @@ MY_NAME='Bill Gallmeister'
 
 ENVIRONMENT_FILES= .bash_aliases .vimrc .quiltrc-dpkg .Xdefaults
 # Debian list.
-USEFUL_PACKAGES= python3 python3-pip r-base-core default-jre default-jdk
+USEFUL_PACKAGES= python3 python3-pip r-base-core default-jre default-jdk vim-pathogen vim-go
 
 DISTRO=`uname -a | awk '{print $4}' | awk -F- '{print $NF}'`
 WHATAMI=`uname`_`arch`
 
 # Might be nicer to check for existence...later.
-install: gitsetup FORCE
+install: gitsetup reminders FORCE
 	cp $(ENVIRONMENT_FILES) $(HOME)
 	mkdir -p $(HOME)/tools/platform-independent/bin
 	mkdir -p $(HOME)/tools/platform-independent/lib
@@ -19,6 +19,10 @@ install: gitsetup FORCE
 gitsetup: FORCE
 	git config --global user.email $(MY_EMAIL)
 	git config --global user.name $(MY_NAME)
+	@echo Git context set to $(MY_NAME) \( $(MY_EMAIL) \)
+
+reminders: FORCE
+	@echo Don\'t forget to install $(USEFUL_PACKAGES)
 
 test: FORCE
 	echo $(WHATAMI)
