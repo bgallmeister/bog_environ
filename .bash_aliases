@@ -49,17 +49,24 @@ if [ $(uname) == "MacOS" ]; then
     export PATH
 fi
 
-# Setting PATH for Go
-PATH=${PATH}:/usr/local/go/bin
-export PATH
+# Setting PATH for Go (generic settings below)
+#PATH=${PATH}:/usr/local/go/bin
+#export PATH
 # Might need to change.
-export GOPATH=$HOME/go
+# export GOPATH=$HOME/go
+
+# Dropbox-specific GOPATH.
+export GOPATH=$HOME/src/server/go
+export GOROOT=/usr/local/go
+export GOBIN=${HOME}/tools/${WHATAMI}/go
+export PATH=${PATH}:${GOPATH}/bin:${GOROOT}/bin:${GOBIN}/bin
 
 
 # added by Anaconda3 4.3.0 installer
-export PATH="/home/bog/tools/anaconda3/bin:$PATH"
+#export PATH="/home/bog/tools/anaconda3/bin:$PATH"
 
 # Quilting.
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 complete -F _quilt_completion $_quilt_complete_opt dquilt
 
+export OF_ROOT=$HOME/tools/of_v0.9.8_osx_release
