@@ -36,11 +36,12 @@ highlight Cursor     ctermfg=Black	    ctermbg=Green	cterm=bold
 highlight Special    ctermfg=Brown
 highlight Comment    ctermfg=LightBlue
 highlight StatusLine ctermfg=Blue	    ctermbg=white
-highlight Statement  ctermfg=Yellow		                cterm=NONE
+highlight Statement  ctermfg=LightGreen		                cterm=NONE
 "highlight Statement  ctermfg=Yellow
 highlight Type						                    cterm=NONE
 highlight HelpUrl    ctermfg=magenta
 highlight HelpString ctermfg=magenta
+highlight Constant   ctermfg=DarkCyan
 
 " only for vim 5
 "if has("unix")
