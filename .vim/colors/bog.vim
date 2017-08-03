@@ -13,8 +13,9 @@ runtime /usr/share/vim/vim74/colors/torte.vim
 "colo torte
 " All changes will be made on top of this!
 
-" Set color scheme name 
-let g:colors_name = "minty"
+" Set color scheme name; I've changed it, so now I feel justified changing the
+" name.
+let g:colors_name = "bog"
 
 " GUI
 "highlight Normal     guifg=Grey80	guibg=Black
@@ -33,7 +34,7 @@ highlight Search     ctermfg=Black	    ctermbg=Red	    cterm=NONE
 highlight Visual					                    cterm=reverse
 highlight Cursor     ctermfg=Black	    ctermbg=Green	cterm=bold
 highlight Special    ctermfg=Brown
-highlight Comment    ctermfg=Blue
+highlight Comment    ctermfg=LightBlue
 highlight StatusLine ctermfg=Blue	    ctermbg=white
 highlight Statement  ctermfg=Yellow		                cterm=NONE
 "highlight Statement  ctermfg=Yellow

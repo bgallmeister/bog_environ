@@ -2,10 +2,10 @@ MY_EMAIL=bgallmeister@yahoo.com
 MY_NAME='Bill Gallmeister'
 
 ENVIRONMENT_FILES= .bash_aliases .vimrc .quiltrc-dpkg .Xdefaults
-VIM_LANG_SETUP_FILES= .vim/ftplugin/python.vim
 
 # Debian list.
-USEFUL_PACKAGES= python3 python3-pip r-base-core default-jre default-jdk vim-pathogen vim-go
+USEFUL_PACKAGES= python3 python3-pip r-base-core default-jre default-jdk
+HACKED_PACKAGES= vim-pathogen vim-go
 
 DISTRO=`uname -a | awk '{print $4}' | awk -F- '{print $NF}'`
 WHATAMI=`uname`_`arch`
@@ -18,8 +18,8 @@ install: gitsetup reminders FORCE
 	mkdir -p $(HOME)/tools/$(WHATAMI)/bin
 	mkdir -p $(HOME)/tools/$(WHATAMI)/lib
 	mkdir -p $(HOME)/tools/$(WHATAMI)/go
-	mkdir -p $(HOME)/.vim/ftplugin
-	cp $(VIM_LANG_SETUP_FILES) $(HOME)/.vim/ftplugin
+	mkdir -p $(HOME)/.vim
+	cp -r .vim $(HOME)/.vim
 
 gitsetup: FORCE
 	git config --global user.email $(MY_EMAIL)
@@ -28,6 +28,7 @@ gitsetup: FORCE
 
 reminders: FORCE
 	@echo Don\'t forget to install $(USEFUL_PACKAGES)
+	@echo Installed cached versions of $(HACKED_PACKAGES)\; updates possibly necessary\?
 	@echo Set GOPATH to $(HOME)/tools/$(WHATAMI)/go and run :GoInstallBinaries.
 
 test: FORCE
